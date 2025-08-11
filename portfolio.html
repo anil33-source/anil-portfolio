@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anil Kumar | Software Developer</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; background-color: #0a0a0a; color: #f0f0f0; line-height: 1.6; }
+    nav { background: rgba(10,10,10,0.95); padding: 20px; display: flex; justify-content: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.6); }
+    nav a { color: #f0f0f0; text-decoration: none; padding: 12px 18px; margin: 0 8px; font-weight: 600; transition: 0.3s ease; border-radius: 8px; font-size: 1rem; }
+    nav a:hover, nav a.active { background: #00bfa6; color: #0a0a0a; }
+    section { padding: 100px 20px; max-width: 1200px; margin: auto; text-align: center; }
+    h1, h2 { margin-bottom: 20px; font-weight: 700; font-size: 2.5rem; }
+    p { max-width: 800px; margin: auto; font-size: 1.1rem; }
+    .cta-button { background: #00bfa6; color: #0a0a0a; padding: 14px 28px; border: none; border-radius: 40px; margin-top: 30px; cursor: pointer; font-size: 1.1rem; transition: 0.3s ease; font-weight: 600; box-shadow: 0 5px 15px rgba(0,191,166,0.4); }
+    .cta-button:hover { background: #01967d; transform: scale(1.05); }
+    img.profile-photo { width: 180px; border-radius: 50%; border: 4px solid #00bfa6; margin: 30px 0; transition: transform 0.3s ease; }
+    img.profile-photo:hover { transform: scale(1.05); }
+    .filter-buttons { margin-bottom: 30px; }
+    .filter-buttons button { margin: 5px; padding: 10px 20px; border: none; background: #1a1a1a; color: #f0f0f0; border-radius: 20px; cursor: pointer; transition: 0.3s; }
+    .filter-buttons button.active, .filter-buttons button:hover { background: #00bfa6; color: #0a0a0a; }
+    .projects-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; margin-top: 20px; }
+    .project-card { background: #1a1a1a; border-radius: 14px; padding: 20px; width: 320px; text-align: left; box-shadow: 0 8px 24px rgba(0,0,0,0.6); transition: transform 0.3s ease, box-shadow 0.3s ease; display: none; }
+    .project-card.show { display: block; }
+    .project-card:hover { transform: translateY(-8px); box-shadow: 0 12px 32px rgba(0,0,0,0.7); }
+    .project-card img { width: 100%; border-radius: 10px; margin-bottom: 15px; }
+    .project-card h3 { color: #00bfa6; margin-bottom: 8px; }
+    .skills-bar { background: #333; border-radius: 8px; overflow: hidden; width: 90%; margin: 15px auto; height: 30px; }
+    .skills-bar-fill { background: #00bfa6; height: 100%; line-height: 30px; text-align: left; padding-left: 10px; font-weight: 600; color: #0a0a0a; }
+    form { max-width: 600px; margin: auto; text-align: left; }
+    form input, form textarea { width: 100%; padding: 14px; margin: 12px 0; background: #1a1a1a; border: 1px solid #555; color: #f0f0f0; border-radius: 8px; font-size: 1rem; }
+    form button { background: #00bfa6; color: #0a0a0a; padding: 12px 24px; border: none; border-radius: 30px; cursor: pointer; font-size: 1rem; font-weight: 600; margin-top: 10px; }
+    form button:hover { background: #01967d; }
+    footer { background: #111; padding: 30px 20px; font-size: 0.9rem; text-align: center; color: #999; }
+    .social-icons a { margin: 0 12px; color: #f0f0f0; font-size: 1.5rem; transition: color 0.3s ease; }
+    .social-icons a:hover { color: #00bfa6; }
+    @media (max-width: 768px) {
+      .projects-container { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="#home">Home</a>
+  <a href="#about">About</a>
+  <a href="#projects">Projects</a>
+  <a href="#skills">Skills</a>
+  <a href="#resume">Resume</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<section id="home">
+  <h1>Hi, I'm Anil Kumar</h1>
+  <p>A software developer passionate about building innovative tech solutions and contributing to organizational success.</p>
+  <img src="anil.jpg" alt="Profile" class="profile-photo">
+  <br>
+  <button class="cta-button" onclick="document.getElementById('projects').scrollIntoView({ behavior: 'smooth' })">View My Work</button>
+</section>
+
+<section id="about">
+  <h2>About Me</h2>
+  <p>I am a B.E. student at R.V.R. & J.C. College of Engineering (2022–2026) with strong skills in software development and project management. I aim to work in a dynamic environment that offers job satisfaction and continuous learning opportunities. I have also completed a Cybersecurity Internship and hold certifications in Software Testing, Wildlife Ecology, and Prompt Engineering.</p>
+</section>
+
+<section id="projects">
+  <h2>Projects</h2>
+  <div class="filter-buttons">
+    <button onclick="filterProjects('all')" class="active">All</button>
+    <button onclick="filterProjects('iot')">IoT</button>
+    <button onclick="filterProjects('web')">Web</button>
+    <button onclick="filterProjects('cyber')">Cybersecurity</button>
+  </div>
+  <div class="projects-container">
+    <div class="project-card iot show" onclick="window.open('file:///C:/Users/RAJALAKSHMI/Downloads/iot.html', '_blank')" style="cursor: pointer;">
+      <img src="iot-fire.jpg" alt="IoT Fire Alarm">
+      <h3>Fire Detection Alarm (IoT) – Team Project</h3>
+<p>This collaborative team project involved designing a fire detection system using temperature and smoke sensors. Our team focused on building a reliable IoT solution that sends alerts via app, SMS, or buzzer, and notifies nearby people or emergency services. My role included sensor integration and front-end development for real-time monitoring.</p>
+      <p><strong>Tech:</strong> IoT, Sensors</p>
+    </div>
+    <div class="project-card web show" onclick="window.open('file:///C:/Users/RAJALAKSHMI/AppData/Local/Temp/b604b2a5-eeaf-484a-82ec-765ad538d1f8_5.%20Araku-Valley-Tourism-Website-master.zip.1f8/5.%20Araku-Valley-Tourism-Website-master/index.html', '_blank')" style="cursor: pointer;">
+      <img src="araku-website.jpg" alt="Tourism Website">
+      <h3>Araku Valley Tourism Website</h3>
+      <p>A web platform promoting tourism in Araku Valley with travel guides, cultural info, image galleries, and contact forms using HTML, CSS, and JS.</p>
+      <p><strong>Tech:</strong> HTML, CSS, JavaScript</p>
+      <p><strong>🔗 Click to Visit</strong></p>
+    </div>
+    <div class="project-card cyber show">
+      <img src="cybersecurity.jpg" alt="Cybersecurity">
+      <h3>Cybersecurity Internship</h3>
+      <p>Learned ethical hacking, threat analysis, and penetration testing. Built a Password Strength Checker using HTML/CSS/JS as a final project.</p>
+      <p><strong>Tech:</strong> Kali Linux, Nmap, Metasploit, JS</p>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <h2>Skills</h2>
+  <div class="skills-bar"><div class="skills-bar-fill" style="width: 85%">C</div></div>
+  <div class="skills-bar"><div class="skills-bar-fill" style="width: 85%">Python</div></div>
+  <div class="skills-bar"><div class="skills-bar-fill" style="width: 75%">MySQL</div></div>
+  <div class="skills-bar"><div class="skills-bar-fill" style="width: 80%">Java</div></div>
+  <div class="skills-bar"><div class="skills-bar-fill" style="width: 90%">Project Management</div></div>
+  <div class="skills-bar"><div class="skills-bar-fill" style="width: 95%">Communication</div></div>
+  <div class="skills-bar"><div class="skills-bar-fill" style="width: 90%">Critical Thinking</div></div>
+</section>
+
+<section id="resume">
+  <h2>My Resume</h2>
+  <p>Take a quick look at my resume in PDF format or click below to view/download it in full screen.</p>
+  <iframe src="anil_resume.pdf" style="width: 100%; height: 800px; border: none; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.5);"></iframe>
+<a href="anil_resume.pdf" class="cta-button" download target="_blank">Download Resume (PDF)</a>
+
+</section>
+
+<section id="contact">
+  <h2>Contact Me</h2>
+  <form onsubmit="return validateForm()">
+    <input type="text" placeholder="Your Name" id="name" required>
+    <input type="email" placeholder="Your Email" id="email" required>
+    <textarea rows="5" placeholder="Your Message" id="message" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+  <div class="social-icons" style="margin-top: 30px">
+    <a href="mailto:anilmedikonda37@gmail.com"><i class="fas fa-envelope"></i></a>
+    <a href="https://github.com/yourgithub" target="_blank"><i class="fab fa-github"></i></a>
+    <a href="https://linkedin.com/in/anil-kumar-177b69290" target="_blank"><i class="fab fa-linkedin"></i></a>
+  </div>
+</section>
+
+<footer>
+  &copy; 2025 Anil Kumar. All rights reserved.
+</footer>
+
+<script>
+  function validateForm() {
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const message = document.getElementById('message').value.trim();
+    if (!name || !email || !message) {
+      alert('Please fill in all fields.');
+      return false;
+    }
+    alert('Message sent successfully!');
+    return false;
+  }
+
+  function filterProjects(category) {
+    const buttons = document.querySelectorAll('.filter-buttons button');
+    buttons.forEach(btn => btn.classList.remove('active'));
+    event.target.classList.add('active');
+
+    const cards = document.querySelectorAll('.project-card');
+    cards.forEach(card => {
+      if (category === 'all' || card.classList.contains(category)) {
+        card.classList.add('show');
+      } else {
+        card.classList.remove('show');
+      }
+    });
+  }
+</script>
+</body>
+</html>

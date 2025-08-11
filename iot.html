@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Fire Alarm System - IoT Project</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    /* Base Reset & Body */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f8f9fb;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(to right, #b30000, #8b0000);
+      color: #fff;
+      padding: 30px 15px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    header h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.1em;
+      font-style: italic;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+
+    /* Section Cards */
+    .section {
+      background: #fff;
+      padding: 25px;
+      margin-bottom: 30px;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s;
+    }
+
+    .section:hover {
+      transform: scale(1.01);
+    }
+
+    h2 {
+      color: #8b0000;
+      margin-bottom: 15px;
+      border-left: 5px solid #b30000;
+      padding-left: 10px;
+    }
+
+    ul {
+      margin-left: 20px;
+    }
+
+    /* Code Block */
+    pre {
+      background-color: #2e2e2e;
+      color: #f8f8f8;
+      padding: 20px;
+      border-radius: 8px;
+      overflow-x: auto;
+      font-family: 'Courier New', monospace;
+      font-size: 14px;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #111;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.95em;
+      margin-top: 50px;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        margin: 20px;
+        padding: 15px;
+      }
+
+      header h1 {
+        font-size: 2em;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>Fire Alarm System</h1>
+  <p>IoT Project Report 2024–2025</p>
+</header>
+
+<div class="container">
+
+  <div class="section">
+    <h2>Team Members</h2>
+    <ul>
+      <li>N. Dhana Lakshmi (Y22IT087)</li>
+      <li>M. Anil Kumar (Y22IT076)</li>
+      <li>V. Pavana Krishna (Y22IT124)</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>1. Abstract</h2>
+    <p>The Fire Alarm System aims to provide early fire detection using flame and temperature sensors. It triggers alarms and indicators to prevent damage and loss. Future enhancements may include integration with automated systems for suppression.</p>
+  </div>
+
+  <div class="section">
+    <h2>2. Purpose</h2>
+    <p>To develop a reliable, responsive fire detection system using sensors and microcontrollers to ensure quick alerts and improve safety in homes and industries.</p>
+  </div>
+
+  <div class="section">
+    <h2>3. Scope</h2>
+    <p>Includes sensor integration, alarm mechanisms, threshold calibration, microcontroller programming, real-time alerting, and testing across environments.</p>
+  </div>
+
+  <div class="section">
+    <h2>4. Block Diagram Description</h2>
+    <ul>
+      <li><strong>Flame Sensor:</strong> Detects infrared from flames.</li>
+      <li><strong>Temperature Sensor:</strong> Detects heat levels.</li>
+      <li><strong>Microcontroller:</strong> Arduino or ESP8266 handles sensor data.</li>
+      <li><strong>Alarm:</strong> LED and buzzer activated on fire detection.</li>
+      <li><strong>Optional Wi-Fi:</strong> Sends remote notifications.</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>5. Code Snippet (Arduino)</h2>
+    <pre><code>
+const int ledpin = 13;
+const int flamepin = A2;
+const int buzpin = 11;
+const int threshold = 500;
+
+int flamesensvalue = 0;
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(ledpin, OUTPUT);
+  pinMode(buzpin, OUTPUT);
+}
+
+void loop() {
+  flamesensvalue = analogRead(flamepin);
+  Serial.print("Flame Sensor Value: ");
+  Serial.println(flamesensvalue);
+  if (flamesensvalue <= threshold) {
+    digitalWrite(ledpin, HIGH);
+    tone(buzpin, 2000);
+    delay(1000);
+  } else {
+    digitalWrite(ledpin, LOW);
+    noTone(buzpin);
+    delay(100);
+  }
+}
+    </code></pre>
+  </div>
+
+  <div class="section">
+    <h2>6. Applications</h2>
+    <ul>
+      <li>Homes and Apartments</li>
+      <li>Commercial Buildings and Malls</li>
+      <li>Industrial Plants and Warehouses</li>
+      <li>Hospitals, Schools, and Airports</li>
+      <li>Data Centers and Entertainment Venues</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>7. Future Scope & Conclusion</h2>
+    <ul>
+      <li>AI-based fire detection to improve accuracy</li>
+      <li>Mobile alert systems with cloud integration</li>
+      <li>Automated suppression using drones/robots</li>
+      <li>Smart building and IoT platform integration</li>
+    </ul>
+    <p><strong>Conclusion:</strong> This system offers a proactive, scalable solution to fire hazards using IoT technologies, enhancing safety across various environments.</p>
+  </div>
+
+</div>
+
+<footer>
+  <p>&copy; 2025 Fire Alarm IoT Project | R.V.R & J.C. College of Engineering</p>
+</footer>
+
+</body>
+</html>
